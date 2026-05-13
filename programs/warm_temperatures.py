@@ -12,7 +12,8 @@ def daily_temp(temps: list[int]) -> list[int]:
         while stack and stack[-1] < temps[i]:
             prev_index = stack.pop()
             result[prev_index] = i - prev_index
-            stack.pop()
+            
+        stack.append(i)
 
 
     return result

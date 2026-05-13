@@ -1,0 +1,46 @@
+from collections import deque
+directions = [[-1,0], [0,1], [1,0], [0,-1]]
+def isValidAndFresh(i,j,oranges):
+    return i >= 0 and j >= 0 and i < len(oranges) and j < len(oranges[0]) and oranges[i][j] == 1
+def rottenOranges(oranges):
+    if len(oranges) == 0:
+        return 0
+    rotten_oranges = deque() 
+    fresh_oranges = 0
+    minTime = 0
+    for i in range(len(oranges)):
+        for j in range(len(oranges[0])):
+            if oranges[i][j] == 2:
+                rotten_oranges.append([i,j])
+            elif oranges[i][j] == 1:
+                fresh_oranges += 1
+    
+
+    while(len(rotten_oranges) != 0):
+        count = len(rotten_oranges)
+        rot = False
+        while(count > 0):
+            orange = rotten_oranges.popleft()
+            for direction in directions:
+                new_i = orange[0]+direction[0]
+                new_j = orange[1]+direction[1]
+                if isValidAndFresh(new_i,new_j,oranges):
+                    rotten_oranges.append([new_i,new_j])
+                    fresh_oranges -= 1
+                    rot = True
+                    oranges[new_i][new_j] = 2
+            count -= 1
+        if(rot == True):
+            minTime += 1
+    
+    return minTime if fresh_oranges == 0 else -1
+
+
+
+
+
+
+                                       
+                
+
+    

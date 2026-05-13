@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE / editor
+.vscode/
+
+# Claude Code project state
+.claude/
+memory/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# FastAPI app lives in its own repo (KKS161994/fastapi-app)
+programs/fastapi/app/
+
+# macOS
+.DS_Store
