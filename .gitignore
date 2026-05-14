@@ -22,8 +22,5 @@ memory/
 *.sqlite
 *.sqlite3
 
-# FastAPI app lives in its own repo (KKS161994/fastapi-app)
-programs/fastapi/app/
-
 # macOS
 .DS_Store
