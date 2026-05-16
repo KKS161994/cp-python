@@ -87,7 +87,6 @@ class LFUCache:
                 temp_node.prev.next = tail
                 tail.prev = temp_node.prev
                 del self.key_to_node[temp_node.key]
-                del temp_node
                 if head.next == tail:
                     del self.frequency_to_node[self.min_frequency]
             self.key_to_node[key] = node
